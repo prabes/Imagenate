@@ -30,6 +30,9 @@ Rails.application.configure do
   #default URL for Devise mailer1
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  #path to the image processor directory
+  # Paperclip.option[:command_path] = "/usr/bin/convert"
+  
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
