@@ -1,7 +1,11 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  
+   def index
+    @posts = Post.all 
+  end
+
   def new
     @post = Post.new
   end
@@ -17,22 +21,36 @@ class PostController < ApplicationController
     end
   end
 
-  def index
-    @posts = Post.order('created_at') 
+  def show 
+    
   end
 
   def edit
+    render 'edit'
   end
 
   def update
+    if @post.update(post_params)
+      flash[:notice] = "Successfully created!"
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = "Failed to Update!"
+      render 'edit'
+    end
   end
 
   def destroy
+    @post.destroy
+    flash[:notice] = "Successfully deleted!"
+    redirect_to root_path
   end
 
   private 
-
+  def set_post
+    @post = Post.find(params[:id])
+  end
+  
   def post_params
-    params.require(:post).permit(:image, :title)
+    params.require(:post).permit(:title, :description, :image)
   end
 end

@@ -1,10 +1,10 @@
 <% if object.errors.any? %>
-  <div class="panel panel-warning errors">
-    <div class="panel-heading">
-      <h5><i class="glyphicon glyphicon-exclamation-sign"></i> Errors while saving </h5>
+  <div>
+    <div>
+      <h5>Errors while saving </h5>
     </div>
   
-    <ul class="panel-body">
+    <ul>
       <% object.errors.full_message.each do |msg| %>
         <li><%= msg %></li>
       <%end%>
