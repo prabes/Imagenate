@@ -7,3 +7,4 @@ Rails.application.routes.draw do
 
   resources :post, except: [:index]
 end
+

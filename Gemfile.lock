@@ -256,7 +256,6 @@ DEPENDENCIES
   rubocop (~> 0.76.0)
   sass-rails (~> 5.0)
   selenium-webdriver
-  spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
