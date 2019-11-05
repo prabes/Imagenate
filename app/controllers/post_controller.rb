@@ -14,7 +14,7 @@ class PostController < ApplicationController # :nodoc:
     @post = Post.new(post_params)
     @post.user = current_user 
     if @post.save
-      flash[:sucess] = 'Successfully created!'
+      flash[:sucess] = 'Successfully created`!'
       redirect_to root_path
     else
       flash[:notice] = 'Something Went wrong!'
@@ -53,5 +53,11 @@ class PostController < ApplicationController # :nodoc:
 
   def post_params
     params.require(:post).permit(:title, :description, :image)
+  end
+
+  private 
+
+  def post_params
+    params.require(:post).permit(:image, :title)
   end
 end
