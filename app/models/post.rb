@@ -4,3 +4,4 @@ class Post < ApplicationRecord # :nodoc:
   validates_attachment :image, content_type: { content_type:
                                                ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 end
+ 

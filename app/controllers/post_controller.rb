@@ -15,11 +15,11 @@ class PostController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      flash[:sucess] = 'Successfully created!'
+    if @post.save 
+      flash[:sucess] = "Successfully created!"
       redirect_to root_path
     else
-      flash[:error] = 'Something Went wrong!'
+      flash[:error] = "Something Went wrong!"
       render 'new'
     end
   end
@@ -54,5 +54,11 @@ class PostController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :description, :image)
+  end
+
+  private 
+
+  def post_params
+    params.require(:post).permit(:image, :title)
   end
 end
