@@ -20,12 +20,14 @@
   padding-top: 20px;
   margin-right: 20px;
 }
-.search-bar{
-  margin-left: 250px;
-}
+// .search-bar{
+//   margin-left: 250px;
+// }
 
 .search-field{
   padding-top: 10px;
+  margin-right: 65px;
+  margin-left: 100px;
 }
 
 .container{
@@ -38,21 +40,25 @@
   border-bottom: 1px solid rgba(0,0,0,.0975);
 }
 
-.sticky {
-  position: fixed;
+.font {
+  color: #000000d4;
+  font-size: 25px;
 }
-.sticky + .content {
-  padding-top: 60px;
+.sizer {
+  margin-right: 300px;
+  margin-left: 300px ;
 }
 
 .user-section{
   padding-top: 10px;
 
   a{
-    padding-left: 40px;
+    margin-left: 40px;
   }
   i.fa{
     font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
     color: #000000d4;
   }
 }
