@@ -38,8 +38,17 @@ gem 'bootstrap-sass', '3.3.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use paperclip for file upload
-gem 'paperclip', '~> 6.1'
+#Use paperclip for file upload
+gem "paperclip", "~> 6.1"
+ 
+#bootstrap
+gem 'bootstrap', '~> 4.1.1'
+
+#jQuery 
+gem 'jquery-rails'
+
+#font awesome gem
+gem "font-awesome-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
