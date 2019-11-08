@@ -13,7 +13,11 @@
       <a><i class="fa fa-compass"></i></a>
       <a><i class="fa fa-heart"></i></a>
       <% if user_signed_in? %>
+<<<<<<< HEAD
         <a href = "<%#=users_show_path(current_user)%>">
+=======
+        <a href = "<%= users_show_path(current_user)%>">
+>>>>>>> Associates User-Post && creates User Controller for show method
           <i  class="fa fa-user" ></i>
         </a>
          <%= link_to 'logout', destroy_user_session_path, method: :delete %>

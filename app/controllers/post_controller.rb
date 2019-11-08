@@ -54,10 +54,4 @@ class PostController < ApplicationController # :nodoc:
   def post_params
     params.require(:post).permit(:title, :description, :image)
   end
-
-  private 
-
-  def post_params
-    params.require(:post).permit(:image, :title)
-  end
 end
