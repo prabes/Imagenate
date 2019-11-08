@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+class PostsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

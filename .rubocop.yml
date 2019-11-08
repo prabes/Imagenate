@@ -1,0 +1,44 @@
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/channels/application_cable/connection_test.rb'
+    - 'test/test_helper.rb'
+    - 'bin/*'
+  
+Metrics/ClassLength:
+  Exclude:
+    - 'config/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    #- 'db/*'
+    - 'config/**/*'
+    - 'app/**/*'
+    #- 'spec/*'
+    - 'bin/*'
+    #- 'db/migrate/*'
+    #- 'app/controllers/*'
+    - 'Rakefile'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+    - 'app/**/*'
+  
+Style/Documentation:
+  Exclude:
+    - 'app/**/*'
+    - 'app/controllers/**/*'
+    - 'db/migrate/*'
+    - 'app/serializers/*'
+    - 'app/models/*'
+    - 'config/*'
+    - 'app/mailers/*'
+  
+Metrics/AbcSize:
+  Exclude:
+    - 'app/controllers/*'
+    - 'db/migrate/*'
+
+Lint/Void:
+  Exclude:
+  - 'app/**/*'
