@@ -11,7 +11,6 @@ class PostController < ApplicationController # :nodoc:
   end
 
   def create
-    
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
@@ -32,7 +31,7 @@ class PostController < ApplicationController # :nodoc:
 
   def update
     if @post.update(post_params)
-      flash[:notice] = 'Successfully created!'
+      flash[:notice] = 'Successfully updated!'
       redirect_to post_path(@post)
     else
       flash[:alert] = 'Failed to Update!'
