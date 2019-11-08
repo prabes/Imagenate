@@ -1,3 +1,2 @@
-# :nodoc:
-module ApplicationHelper
+module ApplicationHelper # :nodoc:
 end

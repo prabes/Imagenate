@@ -10,13 +10,13 @@ Metrics/ClassLength:
 
 Metrics/LineLength:
   Exclude:
-    - 'db/*'
+    #- 'db/*'
     - 'config/**/*'
     - 'app/**/*'
-    - 'spec/*'
+    #- 'spec/*'
     - 'bin/*'
-    - 'db/migrate/*'
-    - 'app/controllers/*'
+    #- 'db/migrate/*'
+    #- 'app/controllers/*'
     - 'Rakefile'
 
 Metrics/MethodLength:
