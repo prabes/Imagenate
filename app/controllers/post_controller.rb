@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostController < ApplicationController # :nodoc:
   before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
@@ -12,9 +14,9 @@ class PostController < ApplicationController # :nodoc:
 
   def create
     @post = Post.new(post_params)
-    @post.user = current_user 
+    @post.user = current_user
     if @post.save
-      flash[:sucess] = 'Successfully created!'
+      flash[:sucess] = 'Successfully created`!'
       redirect_to root_path
     else
       flash[:notice] = 'Something Went wrong!'
@@ -22,8 +24,7 @@ class PostController < ApplicationController # :nodoc:
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     render 'edit'

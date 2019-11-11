@@ -1,4 +1,6 @@
-class Post < ApplicationRecord # :nodoc: 
+# frozen_string_literal: true
+
+class Post < ApplicationRecord # :nodoc:
   has_attached_file :image
 
   validates_attachment :image, content_type: { content_type:
@@ -6,4 +8,3 @@ class Post < ApplicationRecord # :nodoc:
   belongs_to :user
   has_many :comments
 end
- 

@@ -1,3 +1,5 @@
+
+
 Style/ClassAndModuleChildren:
   Exclude:
     - 'test/channels/application_cable/connection_test.rb'
@@ -10,13 +12,10 @@ Metrics/ClassLength:
 
 Metrics/LineLength:
   Exclude:
-    #- 'db/*'
+    - 'db/schema.rb'
     - 'config/**/*'
     - 'app/**/*'
-    #- 'spec/*'
     - 'bin/*'
-    #- 'db/migrate/*'
-    #- 'app/controllers/*'
     - 'Rakefile'
 
 Metrics/MethodLength:
@@ -42,3 +41,8 @@ Metrics/AbcSize:
 Lint/Void:
   Exclude:
   - 'app/**/*'
+
+Metrics/BlockLength:
+  Exclude: 
+    - 'db/schema.rb'
+
