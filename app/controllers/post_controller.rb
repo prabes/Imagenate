@@ -1,7 +1,4 @@
-# frozen_string_literal: true
-
-# :nodoc:
-class PostController < ApplicationController
+class PostController < ApplicationController # :nodoc:
   before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
 
@@ -15,16 +12,18 @@ class PostController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save 
-      flash[:sucess] = "Successfully created!"
+    @post.user_id = current_user.id
+    if @post.save
+      flash[:sucess] = 'Successfully created!'
       redirect_to root_path
     else
-      flash[:error] = "Something Went wrong!"
+      flash[:notice] = 'Something Went wrong!'
       render 'new'
     end
   end
 
-  def show; end
+  def show
+  end
 
   def edit
     render 'edit'
@@ -32,7 +31,7 @@ class PostController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = 'Successfully created!'
+      flash[:notice] = 'Successfully updated!'
       redirect_to post_path(@post)
     else
       flash[:alert] = 'Failed to Update!'
@@ -54,11 +53,5 @@ class PostController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :description, :image)
-  end
-
-  private 
-
-  def post_params
-    params.require(:post).permit(:image, :title)
   end
 end
