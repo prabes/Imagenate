@@ -9,14 +9,10 @@
   </head>
 
   <body>
-   <%= render 'layouts/navbar'%>
-
+    <!--NavBar-->
+    <%= render 'layouts/navbar'%>
     <!--Main content-->
-    <main class="container" id="contenttop" style="min-height: 500px;">
-      
-      <%= yield %>
-    </main>
-
+    <%= yield %>
     <!--Footer-->
     <footer class="container footer">
       <nav class="navbar d-flex">

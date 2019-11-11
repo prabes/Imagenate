@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class CommentTest < ActiveSupport::TestCase
+class ProfileTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

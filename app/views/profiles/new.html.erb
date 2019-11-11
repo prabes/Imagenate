@@ -1,0 +1,19 @@
+<h1>Profile#new</h1>
+<p>Find me in app/views/profile/new.html.erb</p>
+
+
+<%= form_for @profile, html: { multipart: true } do |f| %>
+   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Username %>
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, class: 'form-control' %>
+  </div>
+  <%= f.submit %>
+<% end %>

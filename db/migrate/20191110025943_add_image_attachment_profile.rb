@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+class AddImageAttachmentProfile < ActiveRecord::Migration[5.2]
+  def self.up
+    change_table :profiles do |t|
+      t.attachment :avatar
+    end
+  end
+
+  def self.down
+    remove_attachment :profiles, :avatar
+  end
+end
