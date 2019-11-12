@@ -9,4 +9,5 @@ class Profile < ApplicationRecord
   validates_attachment_file_name :avatar, matches: [/png\z/, /jpe?g\z/]
 
   belongs_to :user
+  has_one :image, as: :imageable
 end
