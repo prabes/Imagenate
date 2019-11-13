@@ -1,5 +1,46 @@
-<div>
-  <div>
-    <%= link_to image_tag(@post.image.url, class: 'media-object'), @post.image.url, target: '_blank' %>
+<div class="row">  
+    <div class="col-md-3" style="background-color: red;">
+      Length
+    </div>
+
+    <div class="col-md-6">
+        <div class="col-md-8">  
+          <h1>Full post Page </h1> 
+        </div>
+     
+          <div class="col-md-4">
+            <!--<%= button_to 'Like', post_likes_path(@post), method: :post %> -->
+            <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+            <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= button_to 'Unlike', post_like_path(@post), method: :delete %>
+            <% else %>
+              <%= button_to 'Like', post_likes_path(@post), method: :post %>
+            <% end %>
+
+            <div class="input-group-prepend">
+              <%= form_with(model: [@post, @post.comments.build], placeholder: "Add Comments...", local: true) do |form| %>
+                <%= form.text_field :body %><br>
+                <%= form.submit %><br>
+              <% end %>
+              <p>
+              <h3>Comments </h3>
+              </p>
+              <% @post.comments.each do |comment| %>
+                <p>
+                  <strong><%= @post.owner %></strong> 
+                </p>
+                <p>
+                  <%= comment.body ? comment.body : "Blank Submission" %>
+                </p>
+              <% end %>
+            </div>
+          </div>  
+    </div>
+    
+    <div class="col-md-3" style="background-color: blue;">
+      left-margin
+    </div>
   </div>
 </div>

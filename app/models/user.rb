@@ -10,5 +10,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
   
 end

@@ -12,6 +12,12 @@
     <!--NavBar-->
     <%= render 'layouts/navbar'%>
     <!--Main content-->
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <!--Footer-->
     <!--<footer class="container footer">
