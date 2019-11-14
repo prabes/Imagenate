@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile, dependent: :destroy 
+  has_one :profile, dependent: :destroy
+  after_create :init_profile
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
@@ -18,4 +20,8 @@ class User < ApplicationRecord
   has_many :followed_users, through: :active_relationships, source: :followed_user
   has_many :follower_users, through: :passive_relationships, source: :follower_user 
   
+  
+  def init_profile 
+    self.create_profile
+  end
 end
