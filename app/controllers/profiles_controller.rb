@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find_by(params_porfile[:id])
+    @profile = Profile.find_by(params_profile[:id])
   end
 
   def profile_params

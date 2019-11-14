@@ -17,8 +17,6 @@ class PostController < ApplicationController # :nodoc:
     @post = Post.new(title: post_params[:title], description: post_params[:description])
     @post.user = current_user
     if @post.save
-    
-      
       post_params[:image].each do |img|
         @post.images.create(image: img )
       end
