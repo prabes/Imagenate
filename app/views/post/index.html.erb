@@ -1,7 +1,29 @@
-<div class="media">
-  <div class="media-left">
-    <% @posts.each do |post|%>
-      <%= render partial: 'layouts/postcard', locals: {post: post}%>      
+<div class="row">  
+    <div class="col-md-3" style="background-color: red;">
+      Length
     </div>
-    <%end%>
+    <div class="col-md-6" style="background-color: grey;">
+       <div class="media">
+           <%=link_to 'Create Post', new_post_path(current_user.profile.id)%>
+           <%=link_to 'Edit Profile', edit_profile_path(current_user.profile.id)%>
+              <% @posts.each do |post|%>
+                <%= render partial: 'layouts/postcard', locals: {post: post}%>      
+              <%end%>
+            
+      </div>
+    </div>
+    <div class="col-md-3" style="background-color: lightgreen;">
+      <strong> All Users </strong> <br>
+      <%@users.each do |user|%>  
+        <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%>
+        <% followed = current_user.followings.find{|u| u.id == user.id} # {yo user lai current user ley follow garya cha ki chaina}%>
+        <% if followed %>
+          <%= button_to "Unfollow", relationship_path(user_id: user.id), :method => :post%>
+        <%else%>
+          <%= button_to "Follow", relationships_path(user_id: user.id), :method => :post%>
+        <%end%>
+        <br>  
+      <%end%>
+    </div>
 </div>
+
