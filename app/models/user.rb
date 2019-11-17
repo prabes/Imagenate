@@ -14,13 +14,23 @@ class User < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy 
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+   
+  def followers
+    follower_relationships.map { |i| User.find(i.follower_id) }
+  end
 
-  has_many :followed_users, through: :active_relationships, source: :followed_user
-  has_many :follower_users, through: :passive_relationships, source: :follower_user 
-  
-  
+  def followings
+    following_relationships.map { |i| User.find(i.following_id) }
+  end
+
+  def follower_relationships
+    Relationship.where(following_id: id)
+  end
+
+  def following_relationships
+    Relationship.where(follower_id: id)
+  end
+
   def init_profile 
     self.create_profile
   end
