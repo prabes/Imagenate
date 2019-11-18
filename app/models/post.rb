@@ -7,7 +7,4 @@ class Post < ApplicationRecord # :nodoc:
   has_many :images, as: :imageable 
   has_many :likes, dependent: :destroy 
 
-  def owner
-    str = self.user.email.split("@").first
-  end
 end
