@@ -31,6 +31,10 @@ class User < ApplicationRecord
     Relationship.where(follower_id: id)
   end
 
+  def followed?(user_id)
+    followings.find{|user| user.id == user_id}
+  end
+
   def init_profile 
     self.create_profile
   end
