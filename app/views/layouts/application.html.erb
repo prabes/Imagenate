@@ -10,11 +10,17 @@
 
   <body>
     <!--NavBar-->
-    <%= render 'layouts/navbar'%>
+    <%= render 'layouts/navbar'%> 
     <!--Main content-->
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <!--Footer-->
-    <footer class="container footer">
+    <!--<footer class="container footer">
       <nav class="navbar d-flex">
         <ul>
           <li>ABOUT US
@@ -32,7 +38,7 @@
         </ul>
         <p> © 2018 INSTAGRAM </p>
       </nav>
-    </footer>
+    </footer> -->
   </body>
 </html>
 

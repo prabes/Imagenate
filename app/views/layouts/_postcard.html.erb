@@ -1,7 +1,3 @@
- 
-  
-      
-     
  <div class="card postsize">
   <div class="card-header">
     <%=post.user&.profile&.username || 'Default Username'%>
@@ -14,10 +10,11 @@
     <p class="card-text">Updated At</p>
     <p class="card-text">Caption</p>
     <a href="#" class="btn btn-primary">Like</a>
-    <a href="#" class="btn btn-primary">See Full Post</a>
-     <%= link_to 'Destroy',{action: :destroy, id: post.id }, method: :delete, :class => "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'See Full Post', post_path(:id => post.id), :class => "btn btn-primary" %>
+    <%= link_to 'Destroy',{action: :destroy, id: post.id }, method: :delete, :class => "btn btn-primary", data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
 <div class="fence">
 </div>
+
 

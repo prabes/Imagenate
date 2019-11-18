@@ -2,27 +2,24 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_comment, only: %i[show edit update destroy]
 
-  def index
-    comment = Comment.all
-  end
 
   def new
     comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @user = current_user
-    @post =
-      if comment.save
-        flash[:sucess] = 'Successfully created!'
-        redirect_to root_path
-      else
-        flash[:notice] = 'Something Went wrong!'
-        render 'new'
-      end
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(comment_params)
+    @comment.user_id = @post.user_id
+    if @comment.save
+      flash[:sucess] = 'Successfully created!'
+      redirect_to post_path(@post)
+    else
+      flash[:notice] = 'Something Went wrong!'
+      redirect_to post_path(@post)
+    end
   end
 
   def show; end
@@ -51,6 +48,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    permit.require(:comment).permit(:body)
+    params.require(:comment).permit(:body)
   end
 end
