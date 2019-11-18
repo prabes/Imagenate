@@ -1,6 +1,5 @@
 class LikesController < ApplicationController
   before_action :find_post
-  before_action :find_like, only: [:destory]
   
   def create
     if !(already_liked?)
@@ -26,8 +25,4 @@ class LikesController < ApplicationController
   def find_post
     @post = Post.find(params[:post_id])
   end
-  
-  def find_like
-    @like = @post.likes.where(post_id: params[:id], user_id: current_user.id)
-  end 
 end
