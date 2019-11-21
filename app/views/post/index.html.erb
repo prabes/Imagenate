@@ -1,31 +1,27 @@
-<div class="row">  
-    <div class="col-md-3" style="background-color: red;">
-      Length
-    </div>
-    <div class="col-md-6" style="background-color: grey;">
-       <div class="media">
-           <%=link_to 'Create Post', new_post_path(current_user.profile.id)%>
-           <%=link_to 'Edit Profile', edit_profile_path(current_user.profile.id)%>
-              <% @posts.each do |post|%>
-                <% if current_user.followed?(post.user.id)%>
-                  <%= render partial: 'layouts/postcard', locals: {post: post}%>   
-                <%end%>   
-              <%end%>
-      </div>
-    </div>
-    <div class="col-md-3" style="background-color: lightgreen;">
-      <strong> All Users </strong> <br>
-      <%@users.each do |user|%>  
-        <% if user.id != current_user.id %> 
-          <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%>
-          <% if current_user.followed?(user.id) %>
-            <%= button_to "Unfollow", relationship_path(user_id: user.id), :method => :post%>
-          <%else%>
-            <%= button_to "Follow", relationships_path(user_id: user.id), :method => :post%>
-          <%end%>
+<div class="container-1">
+  
+  <div class="left-box">
+  </div>
+  
+  <div class="feed">
+    <div class="allpost">
+       <% @posts.each do |post|%>
+          <% if current_user.followed?(post.user.id)%>
+            <%= render partial: 'layouts/postcard', locals: {post: post}%>   
+          <%end%>   
         <%end%>
-          <br>  
-      <%end%>
     </div>
+  </div>
+  
+  <div class="interaction">
+    User Interactions
+  </div>
+  
+  <div class="right-box">
+  </div>
+
 </div>
 
+
+
+ 

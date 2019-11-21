@@ -16,66 +16,52 @@
 @import "bootstrap";
 @import "font-awesome";
 
-.user {
-  float: right;
-  padding-top: 20px;
-  margin-right: 20px;
-}
-// .search-bar{
-//   margin-left: 250px;
-// }
+
 
 .search-field{
   padding-top: 10px;
   margin-right: 65px;
   margin-left: 100px;
 }
-.search-bar{
-  margin-left: 250px;
-}
 
 .container{
   max-width: 1000px;
+  min-height: 100vh;
 }
-.logo{
-  color: #000000d4;
-  padding-top: 0px;
-}
+
 .navbar{
   border-bottom: 1px solid rgba(0,0,0,.0975);
+  height: 5em;
+}
+
+.navbar-brand{
+  padding: 1.5em;
 }
 
 .font {
   color: #000000d4;
   font-size: 25px;
 }
+
 .sizer {
   margin-right: 300px;
   margin-left: 300px ;
 }
 
-.user-section{
-  padding-top: 10px;
 
-  a{
-    margin-left: 40px;
-  }
-  i.fa{
-    font-size: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #000000d4;
-  }
-}
 .search-form{
-  
 
   input{
     font-size: 13px;
     text-align: center;
-
   }
 }
+
+.search-box{
+  flex-flow: row;
+  padding: 0em;
+  }
+
 .footer{
   font-size: 12px;
   padding-top: 30px;
@@ -92,16 +78,26 @@
   }
 }
 
-.postsize {
-   margin: center;
-   align: center; 
-    // margin-left: 380px;
-    // border: 1px solid lightgrey;
-    // padding: 20px;
- }
-.fence{
-  padding: 15px;
-}
+
+// .posts{
+//   align-self: center;
+//   background: grey;
+//   border-width: 1px;
+//   border-color: rgb(223, 219, 219);
+//   border-style: solid ;
+//   height: 40em;
+//   width: 45em;
+// }
+
+// .title{
+//   padding: 1em ;
+//   background: grey;
+//   border-width: 1px;
+//   border-color: rgb(223, 219, 219);
+//   border-style: solid ;
+// }
+
+
 
 .size{
   height: 100px;
@@ -160,6 +156,7 @@
   border-bottom: 1px solid #b3b3b3;
   margin-bottom: 30px;
 }
+
 .user-input{
   // display: block;
   border-bottom: 1px solid #b3b3b3;
@@ -200,4 +197,153 @@
 #image-1{
   max-width: 100%;
   height: auto;
+}
+
+.nav-container{
+  height: 2em;
+}
+
+.bgcol{
+  background: rgb(247, 247, 244);
+}
+//index 
+.container-1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-box{
+  flex: 3;
+}
+
+.feed{
+  flex: 4;
+}
+
+.interaction{
+  flex: 2;
+  border: 1px solid #b3b3b3;
+  margin: 3em;
+
+}
+
+.right-box{
+  flex:2;
+}
+//feed class
+.allpost{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.9em;
+}
+
+.fence{
+
+  padding: 15px;
+}
+
+.postcard{
+  display: flex;
+  border: 2px solid rgb(207, 205, 205);
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.title{
+  flex: 2;
+  border-bottom: 0.5px solid rgb(207, 205, 205);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.post{
+  flex: 8;
+  display: flex;
+  justify-content: center;
+}
+
+.interact{
+  flex: 2;
+  padding: 1em;
+  justify-content: center;
+}
+
+.dp{
+    flex: 1;
+    width: 2em;
+    height: 2em;
+    background: white;
+    border: 2px solid black;
+}
+
+.username{
+  margin-left: 1em;
+  flex: 15;
+}
+
+.display{
+  flex: 10;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  justify-content: flex-start;
+}
+
+//navbar
+
+.d-flex{
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  height: 7em;
+  align-items: center;
+}
+
+.main-nav{
+  flex: 6;
+  display: flex;
+}
+
+.left{
+  flex: 2.5;
+}
+
+
+.right{
+  flex: 2;
+}
+
+.logo{
+  flex: 2;
+  justify-content: center;
+  color: #000000d4;
+}
+
+.search-bar{
+  flex: 4;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+  
+.user-section{
+
+  display: flex;
+  height: 2em;
+  flex: 2;
+  justify-items: flex-end;
+  //display: flex;
+  //flex-direction: row;
+  //justify-content: flex-end;
+  a{
+    flex: 1;
+    margin-left: 1em;
+  }
+  i.fa{
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000d4;
+  }
 }
