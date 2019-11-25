@@ -10,7 +10,7 @@
 
   <body>
     <!--NavBar-->
-    <%= render 'layouts/navbar'%> 
+    <%= render 'layouts/navbar' if current_user %> 
     <!--Main content-->
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
