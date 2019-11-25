@@ -10,14 +10,26 @@
     </div>
   </div>
   <div class="post">
-    <% post.images.each do |img|%>
-      <%= link_to image_tag(img.image.url(:small), class: 'media-object'), img.image.url(:small), target: '_blank' %>
-    <%end%>
+      <% post.images.each do |img|%>
+        <%= link_to image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
+      <%end%>
   </div>
   <div class="interact">
-    <a href="#" class="btn btn-primary scale">Like</a>
-    <%= link_to 'See Full Post', post_path(:id => post.id), :class => "btn btn-primary" %>
-    <%= link_to 'Destroy',{action: :destroy, id: post.id }, method: :delete, :class => "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+    <div class="button1">
+     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= button_to 'Unlike', post_like_path(post), method: :delete, class: "btn btn-primary scale" %>
+      <% else %>
+       <%= button_to 'Like', post_likes_path(post), method: :post, class: "btn btn-primary scale" %>
+      <% end %>
+    </div>
+    <div class="button2">
+      <%= link_to 'See Full Post', post_path(:id => post.id), :class => "btn btn-primary" %>
+    </div>
+    <div class="button3">
+      <%= link_to 'Destroy',{action: :destroy, id: post.id }, method: :delete, :class => "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+    </div>
   </div>
  </div>
 <div class="fence">

@@ -19,8 +19,6 @@
 
 .search-field{
   padding-top: 10px;
-  margin-right: 65px;
-  margin-left: 100px;
 }
 
 .container{
@@ -254,7 +252,6 @@
 
 .title{
   flex: 2;
-  border-bottom: 0.5px solid rgb(207, 205, 205);
   display: flex;
   justify-content: flex-start;
 }
@@ -266,11 +263,24 @@
 }
 
 .interact{
+  display: flex;
   flex: 2;
   padding: 1em;
-  justify-content: center;
+  justify-content: flex-start;
+
+}
+.button1{
+  flex: 1;
+}
+.button2{
+  flex: 2;
+  align-self: flex-end;
 }
 
+.button3{
+  flex: 4;
+  align-self: flex-end;
+}
 .dp{
     flex: 1;
     width: 2em;
@@ -335,9 +345,6 @@
   height: 2em;
   flex: 2;
   justify-items: flex-end;
-  //display: flex;
-  //flex-direction: row;
-  //justify-content: flex-end;
   a{
     flex: 1;
     margin-left: 1em;
@@ -348,4 +355,12 @@
     margin-right: auto;
     color: #000000d4;
   }
+}
+
+
+//image styles
+
+.img-size{
+    max-width: 100%;
+    max-height: 100%;
 }
