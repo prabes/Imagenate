@@ -16,12 +16,12 @@
   </div>
   <div class="interact">
     <div class="button1">
-     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+     <p> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%> </p>
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
       <% if pre_like %>
-        <%= button_to 'Unlike', post_like_path(post), method: :delete, class: "btn btn-primary scale" %>
+        <%= button_to 'Unlike', "/post/#{post.id}/likes/#{pre_like.id}", method: :delete, class: "btn btn-primary scale" %>
       <% else %>
-       <%= button_to 'Like', post_likes_path(post), method: :post, class: "btn btn-primary scale" %>
+       <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-primary scale" %>
       <% end %>
     </div>
     <div class="button2">
@@ -66,5 +66,17 @@
 <div class="fence">
 </div>
 
+      <%@users.each do |user|%>  
+        <% if user.id != current_user.id %> 
+          <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%>
+          <% if current_user.followed?(user.id) %>
+            <%= button_to "Unfollow", relationship_path(user_id: user.id), :method => :post%>
+          <%else%>
+            <%= button_to "Follow", relationships_path(user_id: user.id), :method => :post%>
+          <%end%>
+        </div>
+        <%end%> 
+          <br>  
+      <%end%>
 -->
 

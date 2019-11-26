@@ -14,19 +14,38 @@
   </div>
   
   <div class="interaction">
-     <strong> All Users </strong> <br>
-      <%@users.each do |user|%>  
-        <% if user.id != current_user.id %> 
-          <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%>
+    <div class="user-profile">
+      <div class="dpimage">
+        Image
+      </div>
+      <div class="uname">
+        <strong> Username</strong>
+      </div>
+    </div>
+    <div class="quick-access">
+      <strong><p> Quick Access </p> </strong>
+      <div class="btn btn-primary"> 
+        Create Post
+      </div>
+      <div class="btn btn-primary">
+        Edit Profile
+      </div>
+
+    </div>
+    <div class="suggested">
+      <strong> Suggested Peoples </strong>
+         <%@users.each do |user|%>  
+          <% if user.id != current_user.id %> 
+           <strong> <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%> </strong>
           <% if current_user.followed?(user.id) %>
-            <%= button_to "Unfollow", relationship_path(user_id: user.id), :method => :post%>
+            <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
           <%else%>
-            <%= button_to "Follow", relationships_path(user_id: user.id), :method => :post%>
+            <%= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
           <%end%>
         <%end%> 
           <br>  
       <%end%>
-    User Interactions
+    </div>
   </div>
   
   <div class="right-box">

@@ -224,7 +224,48 @@
   flex: 2;
   border: 1px solid #b3b3b3;
   margin: 3em;
+  align-self: baseline;
+  flex-wrap: column nowrap;
+}
 
+.user-profile{
+  padding: 1em;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+
+  
+
+.uname{
+  flex: 4;
+}
+
+.quick-access{
+  padding: 1em;
+  text-align: left;
+  flex-direction: column;
+}
+
+
+
+.suggested{
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.uname{
+  flex:2;
+  justify-content: flex-start;
+  
+}
+
+.follow{
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .right-box{
@@ -268,17 +309,19 @@
   padding: 1em;
   justify-content: flex-start;
 
+
+
 }
 .button1{
-  flex: 1;
+  padding: 1em;
 }
 .button2{
-  flex: 2;
+  padding: 1em;
   align-self: flex-end;
 }
 
 .button3{
-  flex: 4;
+  padding: 1em;
   align-self: flex-end;
 }
 .dp{
