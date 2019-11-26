@@ -78,27 +78,6 @@
   }
 }
 
-
-// .posts{
-//   align-self: center;
-//   background: grey;
-//   border-width: 1px;
-//   border-color: rgb(223, 219, 219);
-//   border-style: solid ;
-//   height: 40em;
-//   width: 45em;
-// }
-
-// .title{
-//   padding: 1em ;
-//   background: grey;
-//   border-width: 1px;
-//   border-color: rgb(223, 219, 219);
-//   border-style: solid ;
-// }
-
-
-
 .size{
   height: 100px;
   width: 300px;
@@ -122,18 +101,6 @@
   margin-top: 70px ;
   border-radius: 10px;
   background: radial-gradient(circle, #e6e1e1, #dbdbdb, #dbd9d9, #dbd9d9, #dbd9d9)
-  // box-shadow: 0px 20px 20px rgba(0,0,0,0.2);
-  // //0px 5px 10px rgba(0,0,0,0.2)
-  // //long bottom shadow
-  // 0px 70px 50px rgba(0,0,0,0.4);
-  // //right shadow
-  // 30px 50px 50px rgba(0,0,0,.0.2);
-  // //left shadow
-  // -30px 50px 50px rgba(0,0,0,0.2);
-  // //right insert
-  // insert 20px 0px 60px rbga(0,0,0,0.1);
-  // //left insert
-  // insert -20px 0px 60px rbga(0,0,0,0.1);
 }
 
 .fields{
@@ -235,9 +202,6 @@
   flex-wrap: nowrap;
 }
 
-
-
-  
 
 .uname{
   flex: 4;
