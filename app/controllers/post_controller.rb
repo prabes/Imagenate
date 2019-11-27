@@ -36,6 +36,7 @@ class PostController < ApplicationController # :nodoc:
   end
 
   def update
+    binding.pry
     if @post.update(post_params)
       flash[:notice] = 'Successfully updated!'
       redirect_to post_path(@post)
