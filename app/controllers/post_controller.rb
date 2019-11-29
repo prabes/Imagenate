@@ -48,7 +48,6 @@ class PostController < ApplicationController # :nodoc:
   def destroy
     @post.destroy
     flash[:notice] = 'Successfully deleted!'
-    redirect_to root_path
   end
 
   private

@@ -1,31 +1,58 @@
-<div class="row">  
-    <div class="col-md-3" style="background-color: red;">
-      Length
+<div class="container-1">
+  
+  <div class="left-box">
+  </div>
+  
+  <div class="feed">
+    <div class="allpost">
+       <% @posts.each do |post|%>
+          <% if current_user.followed?(post.user.id)%>
+            <%= render partial: 'layouts/postcard', locals: {post: post}%>   
+          <%end%>   
+        <%end%>
     </div>
-    <div class="col-md-6" style="background-color: grey;">
-       <div class="media">
-           <%=link_to 'Create Post', new_post_path(current_user.profile.id)%>
-           <%=link_to 'Edit Profile', edit_profile_path(current_user.profile.id)%>
-              <% @posts.each do |post|%>
-                <% if current_user.followed?(post.user.id)%>
-                  <%= render partial: 'layouts/postcard', locals: {post: post}%>   
-                <%end%>   
-              <%end%>
+  </div>
+  
+  <div class="interaction">
+    <div class="user-profile">
+      <div class="dpimage">
+        Image
+      </div>
+      <div class="uname">
+        <strong> Username</strong>
       </div>
     </div>
-    <div class="col-md-3" style="background-color: lightgreen;">
-      <strong> All Users </strong> <br>
-      <%@users.each do |user|%>  
-        <% if user.id != current_user.id %> 
-          <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%>
+    <div class="quick-access">
+      <strong><p> Quick Access </p> </strong>
+      <div class="btn btn-primary"> 
+        Create Post
+      </div>
+      <div class="btn btn-primary">
+        Edit Profile
+      </div>
+
+    </div>
+    <div class="suggested">
+      <strong> Suggested Peoples </strong>
+         <%@users.each do |user|%>  
+          <% if user.id != current_user.id %> 
+           <strong> <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%> </strong>
           <% if current_user.followed?(user.id) %>
-            <%= button_to "Unfollow", relationship_path(user_id: user.id), :method => :post%>
+            <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
           <%else%>
-            <%= button_to "Follow", relationships_path(user_id: user.id), :method => :post%>
+            <%= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
           <%end%>
-        <%end%>
+        <%end%> 
           <br>  
       <%end%>
     </div>
+  </div>
+  
+  <div class="right-box">
+  </div>
+
 </div>
 
+
+
+ 
