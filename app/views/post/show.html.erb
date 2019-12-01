@@ -1,4 +1,27 @@
-<div class="row">  
+<div class="showpage">
+  <div class="photo">
+    <%binding.pry %>
+    <% @post.images.each do |img|%>
+    <div class="img">  
+      <%= link_to image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
+    </div>
+    <%end%>
+  </div>
+
+  <div class="description">
+    Specs
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">  
     <div class="col-md-3" style="background-color: red;">
       Length
     </div>
@@ -9,7 +32,7 @@
         </div>
      
           <div class="col-md-4">
-            <!--<%= button_to 'Like', post_likes_path(@post), method: :post %> -->
+            <%= button_to 'Like', post_likes_path(@post), method: :post %> 
             <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
             <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
@@ -45,4 +68,4 @@
       List All users. [Follow Button]
     </div>
   </div>
-</div>
+</div> -->
