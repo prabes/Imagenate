@@ -56,6 +56,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #Google OAuth
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 
+#OAuth Facebook
+gem 'omniauth-facebook'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
