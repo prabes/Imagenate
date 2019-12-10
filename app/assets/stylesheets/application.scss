@@ -202,15 +202,19 @@
   flex-wrap: nowrap;
 }
 
-
+.quick{
+  text-align: center;
+}
 .uname{
   flex: 4;
 }
 
 .quick-access{
-  padding: 1em;
-  text-align: left;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
 }
 
 

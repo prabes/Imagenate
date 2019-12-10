@@ -22,15 +22,10 @@
         <strong> Username</strong>
       </div>
     </div>
+    <div class="quick"> <strong><p> Quick Access </p> </strong> </div>
     <div class="quick-access">
-      <strong><p> Quick Access </p> </strong>
-      <div class="btn btn-primary"> 
-        Create Post
-      </div>
-      <div class="btn btn-primary">
-        Edit Profile
-      </div>
-
+      <%= link_to 'Create Post', new_post_path, class: "btn btn-primary" %>
+      <%= link_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-primary"  %>
     </div>
     <div class="suggested">
       <strong> Suggested Peoples </strong>
