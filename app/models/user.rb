@@ -7,11 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   has_one :profile, dependent: :destroy
-  after_create :init_profile
-
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :images, dependent: :destroy, as: :imageable
   has_many :likes, dependent: :destroy
 
   def followers
