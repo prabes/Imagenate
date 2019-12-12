@@ -3,12 +3,8 @@
 class RelationshipsController < ApplicationController
   def create
     @relationship = Relationship.create(follower_id: current_user.id, following_id: params[:user_id])
-    if @relationship
-      redirect_to root_path
-    else
-      flash[:alert] = 'Cannot Follow!'
-      redirect_to root_path
-    end
+    flash[:alert] = 'Cannot Follow!' unless @relationship
+    redirect_to root_path
   end
 
   def destroy

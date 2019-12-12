@@ -2,5 +2,5 @@
 
 class Profile < ApplicationRecord
   belongs_to :user
-  has_one :image, as: :imageable
+  has_many :images, as: :imageable
 end

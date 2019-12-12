@@ -70,7 +70,6 @@ group :development, :test do
   gem 'pry-remote'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'shoulda-matchers'
-
 end
 
 group :development do

@@ -2,7 +2,7 @@
   <div class="photo">
     <% @post.images.each do |img|%>
     <div class="img">  
-      <%= link_to image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
+      <%= image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
     </div>
     <%end%>
   </div>

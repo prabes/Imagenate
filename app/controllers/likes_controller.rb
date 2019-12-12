@@ -6,12 +6,10 @@ class LikesController < ApplicationController
   def create
     if !already_liked?
       flash[:notice] = "You can't a like more than once"
-      redirect_to root_path
     else
       @post.likes.create(user_id: current_user.id)
-      # redirect_to post_path(@post)
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy

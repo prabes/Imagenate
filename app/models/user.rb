@@ -31,10 +31,6 @@ class User < ApplicationRecord
     followings.find { |user| user.id == user_id }
   end
 
-  def init_profile
-    create_profile
-  end
-
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
