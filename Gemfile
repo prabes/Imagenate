@@ -65,7 +65,8 @@ group :development, :test do
   # and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
-  gem 'rspec-rails'
+  gem 'pry-remote'
+  gem 'pry-nav'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'hirb'
 

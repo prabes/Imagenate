@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_05_171059) do
+=======
+ActiveRecord::Schema.define(version: 2019_12_12_164419) do
+>>>>>>> Complete Nested Comments
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_171059) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "commentable_id"
+    t.string "commentable_type"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -63,10 +69,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_171059) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.bigint "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
