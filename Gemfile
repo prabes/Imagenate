@@ -65,7 +65,7 @@ group :development, :test do
   # and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
-
+  gem 'rspec-rails'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'hirb'
 
@@ -79,9 +79,11 @@ group :development do
   # Spring speeds up development by keeping your
   # application running in the background.
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'shoulda-matchers'
 end
 
 group :test do
+  gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
