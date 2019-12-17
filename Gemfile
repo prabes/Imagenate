@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-#ruby '2.6.0'
+# ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -53,22 +53,22 @@ gem 'font-awesome-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#Google OAuth
+# Google OAuth
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 
-#OAuth Facebook
+# OAuth Facebook
 gem 'omniauth-facebook'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-nav'
-  gem 'rubocop', '~> 0.76.0', require: false
   gem 'hirb'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-remote'
+  gem 'rubocop', '~> 0.76.0', require: false
+  gem 'shoulda-matchers'
 
 end
 
@@ -80,11 +80,9 @@ group :development do
   # Spring speeds up development by keeping your
   # application running in the background.
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'shoulda-matchers'
 end
 
 group :test do
-  gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'

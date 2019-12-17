@@ -6,8 +6,4 @@ class Comment < ApplicationRecord
 
   belongs_to :commentable, polymorphic: true
   has_many :comments, as: :commentable
-
-  def owner
-    owner = self.user.email.split("@").first
-  end
 end

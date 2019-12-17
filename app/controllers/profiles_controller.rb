@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: %i[edit show update destroy]
-  
+
   def new
     @profile = Profile.new
   end
@@ -19,12 +21,11 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     if @profile.id != current_user.profile.id
-      flash[:alert] = "You are not authorized to edit the profile......."
+      flash[:alert] = 'You are not authorized to edit the profile.......'
       redirect_to root_path
     end
   end

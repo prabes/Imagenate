@@ -14,12 +14,11 @@ class PostController < ApplicationController # :nodoc:
   end
 
   def create
-    
     @post = Post.new(title: post_params[:title], description: post_params[:description])
     @post.user = current_user
     if @post.save
       post_params[:image].each do |img|
-        @post.images.create(image: img )
+        @post.images.create(image: img)
       end
       flash[:sucess] = 'Successfully created`!'
       redirect_to root_path
