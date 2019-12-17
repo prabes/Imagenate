@@ -13,6 +13,10 @@ devise_for :users, controllers:
     resources :comments, except: [:index]
     resources :likes
   end
+  resources :comments do
+    resources :comments
+  end
+ 
 
   post 'relationships', to: 'relationships#create'
   post 'relationship',  to: 'relationships#destroy'
