@@ -3,9 +3,7 @@
 class Comment < ApplicationRecord
   validates :body, presence: true
   belongs_to :user
-  belongs_to :post, dependent: :destroy
 
-  def owner
-    owner = self.user.email.split("@").first
-  end
+  belongs_to :commentable, polymorphic: true
+  has_many :comments, as: :commentable
 end

@@ -31,7 +31,6 @@
       <strong> Suggested Peoples </strong>
          <%@users.each do |user|%>  
           <% if user.id != current_user.id %> 
-           <strong> <%=link_to "#{user.profile.username}", profile_path(user.profile.id)%> </strong>
           <% if current_user.followed?(user.id) %>
             <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
           <%else%>
