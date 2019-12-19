@@ -3,6 +3,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: %i[edit show update destroy]
+  before_action :profile_params, only: %i[create update]
+  before_action :image_params, only: :update
 
   def new
     @profile = Profile.new
@@ -11,14 +13,12 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-
     if @profile.save
       flash[:notice] = 'Successfully created!'
-      redirect_to profile_path(@profile)
     else
       flash[:alert] = 'Something Went Wrong!'
-      redirect_to new_profile_path
     end
+    redirect_to profile_path(@profile)
   end
 
   def show; end
@@ -31,12 +31,12 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(profile_params)
+    if @profile.update(profile_params) && @profile.images.build(image_params).save
       flash[:notice] = 'Changes Successfully Updated!'
-      redirect_to profile_path(@profile)
     else
       flash[:alert] = 'Something Went Wrong!'
     end
+    redirect_to profile_path(@profile)
   end
 
   def destroy
@@ -48,10 +48,14 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :username, :website, :bio, :phone_number, :avatar)
+    params.require(:profile).permit(:name, :username, :website, :bio, :phone_number)
+  end
+
+  def image_params
+    params.require(:profile).permit(:image)
   end
 end

@@ -7,11 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   has_one :profile, dependent: :destroy
-  after_create :init_profile
-
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :images, dependent: :destroy, as: :imageable
   has_many :likes, dependent: :destroy
 
   def followers
@@ -32,10 +29,6 @@ class User < ApplicationRecord
 
   def followed?(user_id)
     followings.find { |user| user.id == user_id }
-  end
-
-  def init_profile
-    create_profile
   end
 
   def self.from_omniauth(access_token)

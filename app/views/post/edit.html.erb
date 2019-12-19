@@ -1,4 +1,22 @@
 <h1>Post#edit</h1>
 <p>Find me in app/views/post/edit.html.erb</p>
 
-<%= render 'shared/form' %>
+<%= form_for :profile  do |p|%>
+  <div class="pass-input user-input">
+    <%= p.label :name %><br/>
+    <%= p.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="pass-input user-input">
+    <%= p.label :username %><br/>
+    <%= p.text_field :username, placeholder: "Username" %>
+  </div>
+  <div class="pass-input user-input">
+    <%= p.label :website %> <br/>
+    <%= p.text_field :website, placeholder: "Website" %>
+  </div>
+  <div class="pass-input user-input">  
+    <%= p.label :phone_no %> <br/>
+    <%= p.text_field :phone_number, placeholder: "Phone Number"%>
+  </div>
+  <%= f.submit 'Submit' %>
+<%end%>

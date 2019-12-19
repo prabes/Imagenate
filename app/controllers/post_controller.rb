@@ -37,7 +37,7 @@ class PostController < ApplicationController # :nodoc:
   def update
     if @post.update(post_params)
       flash[:notice] = 'Successfully updated!'
-      redirect_to post_path(@post)
+      render post_path(@post)
     else
       flash[:alert] = 'Failed to Update!'
       render 'edit'
