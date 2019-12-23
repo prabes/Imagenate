@@ -32,22 +32,34 @@
         <%@users.each do |user|%>  
         <% if user.id != current_user.id %> 
           <strong>  <%= link_to "#{user.profile.username}", profile_path(user) %> </strong>
-          <% if current_user.followed?(user.id) %>
+          <% if current_user.request_sent? user.id %>
+            <%= button_to "Cancel Follow Request", request_path(user_id: user.id), class: "btn btn-primary", method: :post %>
+          <% elsif current_user.followed?(user.id) %>
             <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%else%>
-            <%= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%end%>
-        <%end%> 
+          <% else %>
+            <%= button_to "Send Follow Request", requests_path(user_id: user.id), class: "btn btn-primary", method: :post %>
+          <% end %>
+          <%# if current_user.followed?(user.id) %>
+            <%#= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
+          <%#else%>
+            <%#= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
+          <%#end%>
+        <% end %> 
           <br>  
-      <%end %>
+      <% end %>
     </div>
   </div>
   
   <div class="right-box">
+    <% if current_user.requesters.empty? %>
+      There are no Follow Request for you !
+    <% else %>
+      <%current_user.requesters.each do |user|%>  
+        <%= link_to "#{user.profile.username}", profile_path(user) %>
+        <%= button_to "Decline", request_path(user_id: user.id), class: "btn btn-primary", :method => :post %>
+        <%= button_to "Accept", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post %>
+      <% end %>
+    <% end %>
   </div>
-
 </div>
-
-
-
  

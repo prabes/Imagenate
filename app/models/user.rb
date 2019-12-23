@@ -31,6 +31,27 @@ class User < ApplicationRecord
     followings.find { |user| user.id == user_id }
   end
 
+  def request_sent?(user_id)
+    requested.find{ |user| user.id == user_id } 
+  end
+
+  def requesters
+    request_received.map{|i| User.find(i.requesting_id)}  
+  end
+
+  def requested 
+    request_sent.map{|i| User.find(i.requested_id)}
+  end
+
+
+  def request_sent
+    Request.where(requesting_id: id)
+  end
+
+  def request_received
+    Request.where(requested_id: id)
+  end
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
@@ -42,4 +63,4 @@ class User < ApplicationRecord
     )
     user
   end
-end
+end 
