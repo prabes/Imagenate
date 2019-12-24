@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   def create
-    @request = Request.create(requesting_id: current_user.id, requested_id: params[:user_id], status: :false)
+    @request = Request.create(requesting_id: current_user.id, requested_id: params[:user_id])
     if @request 
       flash[:success] = "Follow request Sent!"
     else
