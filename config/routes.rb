@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   post 'relationships', to: 'relationships#create'
   post 'relationship',  to: 'relationships#destroy'
+
+  post 'requests', to: 'requests#create'
+  post 'request', to: 'requests#destroy'
 end
