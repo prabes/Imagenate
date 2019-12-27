@@ -1,65 +1,22 @@
-<div class="container-1">
-  
-  <div class="left-box">
+<div class="row">
+  <div class="col-sm-2">
   </div>
-  
-  <div class="feed">
-    <div class="allpost">
-       <% @posts.each do |post|%>
-          <% if current_user.followed?(post.user.id)%>
-            <%= render partial: 'layouts/postcard', locals: {post: post}%>   
-          <%end%>   
-        <%end%>
-    </div>
-  </div>
-  
-  <div class="interaction">
-    <div class="user-profile">
-      <div class="dpimage">
-        Image
+  <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-1">
       </div>
-      <div class="uname">
-        <strong> Username</strong>
+      <div class="col-sm-7">
+        <% @posts.each do |post|%>
+          <%# if current_user.followed?(post.user.id)%>
+          <%= render partial: 'layouts/postcard', locals: {post: post}%> 
+          <div class="fence"></div>
+        <%end%>   
+      </div>
+      <div class="col-sm-3">
+        <%= render partial: 'layouts/usersection', locals: {post: @posts} %>
       </div>
     </div>
-    <div class="quick"> <strong><p> Quick Access </p> </strong> </div>
-    <div class="quick-access">
-      <%= link_to 'Create Post', new_post_path, class: "btn btn-primary" %>
-      <%= link_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-primary"  %>
-    </div>
-    <div class="suggested">
-      <strong> Suggested Peoples </strong>
-        <%@users.each do |user|%>  
-        <% if user.id != current_user.id %> 
-          <strong>  <%= link_to "#{user.profile.username}", profile_path(user) %> </strong>
-          <% if current_user.request_sent? user.id %>
-            <%= button_to "Cancel Follow Request", request_path(user_id: user.id), class: "btn btn-primary", method: :post %>
-          <% elsif current_user.followed?(user.id) %>
-            <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <% else %>
-            <%= button_to "Send Follow Request", requests_path(user_id: user.id), class: "btn btn-primary", method: :post %>
-          <% end %>
-          <%# if current_user.followed?(user.id) %>
-            <%#= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%#else%>
-            <%#= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%#end%>
-        <% end %> 
-          <br>  
-      <% end %>
-    </div>
   </div>
-  
-  <div class="right-box">
-    <% if current_user.requesters.empty? %>
-      There are no Follow Request for you !
-    <% else %>
-      <%current_user.requesters.each do |user|%>  
-        <%= link_to "#{user.profile.username}", profile_path(user) %>
-        <%= button_to "Decline", request_path(user_id: user.id), class: "btn btn-primary", :method => :post %>
-        <%= button_to "Accept", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post %>
-      <% end %>
-    <% end %>
+  <div class="col-sm-1">
   </div>
 </div>
- 

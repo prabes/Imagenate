@@ -1,37 +1,11 @@
+  
 
-<div class="postcard">
-  <div class="title">
-    <div class="display">
-      <div class="dp">
-      </div> 
-      <div class="username">
-        <%=post.user&.profile&.name || 'Default Username'%>
-      </div>
-    </div>
-  </div>
-  <div class="post">
-      <% post.images.each do |img|%>
-        <%= link_to image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
-      <%end%>
-  </div>
-  <div class="interact">
-    <div class="button1">
-     <p> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%> </p>
-      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-      <% if pre_like %>
-        <%= button_to 'Unlike', "/post/#{post.id}/likes/#{pre_like.id}", method: :delete, class: "btn btn-primary scale" %>
-      <% else %>
-       <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-primary scale" %>
-      <% end %>
-    </div>
-    <div class="button2">
-      <%= link_to 'See Full Post', post_path(:id => post.id), :class => "btn btn-primary" %>
-    </div>
-    <div class="button3">
-      <%= link_to 'Destroy',{action: :destroy, id: post.id }, method: :delete, :class => "btn btn-primary", data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div>
- </div>
-<div class="fence">
-</div> 
-
+<div class="card">
+  <%= render partial: 'layouts/postcardhead', locals: {post: post} %>
+  <%= render partial: 'layouts/carousel', locals: {post: post} %>
+  <%= render partial: 'layouts/postcardfooter', locals: {post: post} %>
+  <%= render partial: 'layouts/postcarddetails', locals: {post: post} %>
+  <%= render partial: 'layouts/commentbox', locals: {post: post} %>
+    <%# post_comment = post.comments.find_all { |comment| comment.id != nil} %>
+    <%#= render partial: 'comments/comments', collection: post_comment %>
+</div>

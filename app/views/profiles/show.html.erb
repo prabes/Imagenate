@@ -13,7 +13,7 @@
       <div class="row">
         <% @profile.user.posts.each do |post|%>
         <% post.images.each do |img|%>
-          <%=image_tag(img.image.url(:medium), class: 'media-object img-size')%>
+          <%=image_tag(img.image.url(:small), class: 'media-object img-size')%>
         <% end %>
         <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p> 
       <% end %>

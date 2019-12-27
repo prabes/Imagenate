@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
                 @comment.comments.build(comment_params.merge(post_id: @comment.post_id, user_id: current_user.id))
               end
     if comment.save
-      redirect_to post_path(comment.post)
+      redirect_to post_path(comment.post_id)
     else
       flash[:alert] = 'Cannot create comment for the post'
       redirect_to post_path(comment.post_id)

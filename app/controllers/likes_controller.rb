@@ -13,9 +13,12 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = @post.likes.find_by(user_id: current_user.id)
-    like&.destroy
-    redirect_to root_path
+    like = Like.find(params[:id])
+    if like.destroy
+      redirect_to root_path
+    else 
+      flash[:alert] = "Sorry! Cannot Unlike the Post."
+    end
   end
 
   private

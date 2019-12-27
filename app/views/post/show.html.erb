@@ -2,7 +2,7 @@
   <div class="photo">
     <% @post.images.each do |img|%>
     <div class="img">  
-      <%= image_tag(img.image.url(:medium), class: 'media-object img-size'), img.image.url(:medium), target: '_blank' %>
+      <%= image_tag(img.image.url(:thumb), class: 'media-object img-size')%>
     </div>
     <%end%>
   </div>
@@ -13,7 +13,7 @@
 
       <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
       <% if pre_like %>
-        <%= button_to 'Unlike', post_like_path(@post), method: :delete %>
+        <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
       <% else %>
         <%= button_to 'Like', post_likes_path(@post), method: :post %>
       <% end %>
@@ -29,4 +29,4 @@
       <%= render partial: 'comments/comments', collection: post_comments %>
     </div>
   </div>
-</div> 
+</div>  
