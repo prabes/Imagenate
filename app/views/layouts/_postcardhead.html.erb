@@ -3,6 +3,6 @@
 		  <center> <%=image_tag(post.images.first.image.url(:thumb), size: '60x60')%> </center>
 		</div>
 		<div class="col-sm-10 font-weight-bold pt-3">
-		  <span> <%=post.user&.profile&.username%> </span>
+		  <span> <%=link_to post.user&.profile&.username, profile_path(current_user), class: 'text-dark'%> </span>
 		</div>
 	</div>

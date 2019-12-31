@@ -21,6 +21,6 @@
     <div class="col-sm-6 like-com comment">
       <strong><%= post.likes.count %></strong> <%=(post.likes.count) == 1 ? 'Like' : 'Likes'%>
       <strong><%= post.comments.count%></strong> <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%>
-      <p> <%=post.updated_at%> </p> 
+      <p> <small class="text-muted"><%=post.updated_at%></small> </p> 
     </div>
   </div>

@@ -1,18 +1,18 @@
-<div class="card w-100 p-20" >
+<div class="card w-100 h-25 p-20">
   <%= render partial: 'layouts/postcardhead', locals: {post: @posts.first}%>
-  <div class="card-body">
-    <h3 class="card-title font-weight-bold"> <%=current_user.profile.name%> </h3>
-    <p class="card-text"><%=current_user.profile.bio%></p>
+  
+  <div class="row card-body ">
+    <h5 class="card-title font-weight-light "> <%=current_user.profile.name%> </h5>
   </div>
-  <div class="card-body">
-    <div class="row">
+
+  <div class="row card-body">
       <div class="col-sm-6">
-        <%= button_to 'Create Post',new_post_path, method: :get, class: "btn btn-default border w-1" %>
+        <%= button_to 'Create Post',new_post_path, method: :get, class: "btn btn-outline-secondary " %>
       </div>
       <div class="col-sm-6">
-        <%= button_to 'Edit Profile',new_post_path, method: :get, class: "btn btn-default border" %>
+        <%= button_to 'Edit Profile',edit_profile_path(current_user), method: :get, class: "btn btn-outline-secondary" %>
       </div>
-    </div>
   </div>
   <%= render partial: 'layouts/suggested'%>
+  <%= render partial: 'layouts/footerdetails'%>
 </div>

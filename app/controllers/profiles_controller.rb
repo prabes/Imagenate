@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(profile_params) && @profile.images.build(image_params).save
+    if @profile.update(profile_params) && @profile.image.build(image_params).save
       flash[:notice] = 'Changes Successfully Updated!'
     else
       flash[:alert] = 'Something Went Wrong!'

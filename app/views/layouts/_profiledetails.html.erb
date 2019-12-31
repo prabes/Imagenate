@@ -1,0 +1,24 @@
+<div class="card mb-5 border-0 ">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <%if profile.image%>
+        <%= image_tag(profile.image.url(:small), class: 'media-object img-size rounded-circle') %>
+      <%end%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body row m-0 p-0">
+        <div class="col-sm-6 m-0 p-0">
+          <h4 class="card-title m-0 p-0"><%=profile.username%></h4>
+        </div>
+        <div class="col-sm-6">
+          <%= button_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-default border", method: :get  %>
+        </div>
+      </div>
+      <p class="text-muted font-weight-bold"><%=profile.name%></p>
+      <p class="card-text font-weight-lighter"><%=profile.bio%></p>
+    </div>
+  </div>
+</div>    
+<div class="row">
+  <%= render partial:'layouts/photos', locals: {profile: profile } %>
+</div>
