@@ -2,64 +2,16 @@
   <div class="suggested overflow-auto overflow-x-hidden m-0 p-0 ">
     <%@users.each do |user|%>  
       <% if user.id != current_user.id %>
-          <div class="row m-0 p-0">
-            <div class="col-md-6 p-0 m-0">
-              <strong>  <%= link_to user.profile.username, profile_path(user), class:'text-secondary m-0 p-0' %> </strong>
-            </div>  
-            <div class="col-md-6 p-0 m-0">
-              <% if current_user.request_sent? user.id %>
-                <%= button_to "Cancel Request", request_path(user_id: user.id), class: "btn btn-outline-warning", method: :post %>
-              <% elsif current_user.followed?(user.id) %>
-                <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-outline-danger", :method => :post%>
-              <% else %>
-                <%= button_to "Send Request", requests_path(user_id: user.id), class: "btn btn-outline-secondary", method: :post %>
-              <% end %>
-            </div>
+        <div class="row m-0 p-0">
+          <div class="col-md-6 p-0 m-0">
+            <strong>  <%= link_to user.profile.username, profile_path(user), class:'text-secondary m-0 p-0' %> </strong>
+          </div>  
+          <div class="col-md-6 p-0 m-0">
+            <%= render partial: 'layouts/followbutton', locals: {user: user} %>
           </div>
-        <%# if current_user.followed?(user.id) %>
-          <%#= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-        <%#else%>
-          <%#= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-        <%#end%>
+        </div>
       <% end %> 
       <br>  
     <% end %>
   </div>
   </div>
-  <!--
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-    <li class="list-group-item">People to follow</li>
-  </ul-->

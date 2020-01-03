@@ -6,12 +6,13 @@ class RequestsController < ApplicationController
     else
       flash[:alert] = "Sorry! Cannot Send Follow Request."
     end
-  redirect_to root_path
+    render :create
+    #render json: { request: @request, user: @request.user }
   end
   
   def destroy
     @request = Request.where(requesting_id: current_user.id, requested_id: params[:user_id])
     @request.destroy_all
-    redirect_to root_path
+    render :create
   end
 end
