@@ -2,5 +2,4 @@
   const [response, status, xhr] = event.detail;
   console.log("Here is the response: ", response);
 }); %>
-
 $('#followbutton').replaceWith("<%= j render partial: 'layouts/followbutton', locals: {user: User.find(params[:user_id])} %>");

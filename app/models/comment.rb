@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# validates and associates Comments
 class Comment < ApplicationRecord
   validates :body, presence: true
   belongs_to :user
