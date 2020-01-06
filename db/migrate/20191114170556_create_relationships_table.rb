@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateRelationshipsTable < ActiveRecord::Migration[5.2]
+class CreateRelationshipsTable < ActiveRecord::Migration[5.2] #:nodoc:
   def change
     create_table :relationships do |t|
       t.references :follower,  foreign_key: { to_table: :users }
