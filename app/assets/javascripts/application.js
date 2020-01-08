@@ -12,9 +12,12 @@
 //
 //= require jquery3
 //= require popper
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 
+
+function focusOnCommentField(e){
+    document.getElementById("comment-box"+e.target.id).focus();
+  }

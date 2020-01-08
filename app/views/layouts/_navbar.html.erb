@@ -1,4 +1,65 @@
-<div class="navbar navbar-light bg-light d-flex"> 
+<nav class="row navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+  <div class="col-sm-2">
+  </div>
+    
+  <div class="col-sm-9">
+    <div class="row">  
+      
+      <div class="col-sm-4">
+        <a class="navbar-brand" id="logo" href="<%= root_path %>"> 
+          <i class="fa fa-instagram font" aria-hidden="true">
+            Imagenate
+          </i>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      
+      <div class="col-sm-3">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2  search justify-content-center" type="search" placeholder="@search" aria-label="Search">
+        </form>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="row navbar-nav ml-auto mr-auto">
+            <div class="col-sm-4"> 
+              <li class="nav-item active">
+                <a><i class="fa fa-compass fa-2x nav-link"></i></a>
+              </li> 
+            </div>
+
+            <div class="col-sm-4">
+              <li class="nav-item dropdown">
+              <a class="nav-link" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<%= request_path(current_user)%>"><i class="fa fa-heart-o fa-2x"></i></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+              </li>
+            </div>
+
+            <div class="col-sm-4">
+              <li class="nav-item active">
+                <a href="<%= profile_path(current_user)%>"><i class="fa fa-user-o fa-2x nav-link"></i> </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-1">
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+  </div>
+</nav>
+
+
+<!--<div class="navbar navbar-light bg-light d-flex"> 
   <div class="left">
   </div>
   <div class="main-nav">
@@ -20,4 +81,4 @@
   </div>
   <div class="right">
   </div>
-</div>
+</div> --> 

@@ -1,0 +1,9 @@
+<div id="followbutton">
+  <% if current_user.request_sent? user.id %>
+    <%= button_to "Cancel Request", request_path(user_id: user.id), class: "btn btn-outline-warning", method: :post, remote: true %>
+  <% elsif current_user.followed?(user.id) %>
+    <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-outline-danger", :method => :post, remote: true %>
+  <% else %>
+    <%= button_to "Send Request", requests_path(user_id: user.id), class: "btn btn-outline-secondary", method: :post, remote: true %>
+  <% end %>
+</div>

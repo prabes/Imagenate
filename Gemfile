@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # ruby '2.6.0'
-
+gem 'sprockets-rails', require: 'sprockets/railtie'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
@@ -31,9 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass', '3.3.6'
+# master version of bootstrap gem
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
-# Use ActiveStorage variant
+# JQuery on rails for JS
+gem 'jquery-rails'
+
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
@@ -43,10 +46,7 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'paperclip', '~> 6.1'
 
 # bootstrap
-gem 'bootstrap', '~> 4.1.1'
-
-# jQuery
-gem 'jquery-rails'
+# gem 'bootstrap', '~> 4.0.0'
 
 # font awesome gem
 gem 'font-awesome-rails'

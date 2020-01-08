@@ -1,0 +1,5 @@
+<div class="row">
+  <% profile.user.posts.each do |post|%>
+    <%=image_tag(post.images.first.image.url(:small), class: 'media-object img-size m-2')%>
+  <% end %>
+  </div>

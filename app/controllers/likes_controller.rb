@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LikesController < ApplicationController
+class LikesController < ApplicationController #:nodoc:
   before_action :find_post
 
   def create
@@ -9,13 +9,16 @@ class LikesController < ApplicationController
     else
       @post.likes.create(user_id: current_user.id)
     end
-    redirect_to root_path
+    render :create
   end
 
   def destroy
-    like = @post.likes.find_by(user_id: current_user.id)
-    like&.destroy
-    redirect_to root_path
+    like = Like.find(params[:id])
+    if !like.destroy
+      flash[:alert] = 'Sorry! Cannot Unlike the Post.'
+    else
+      render :create
+    end
   end
 
   private

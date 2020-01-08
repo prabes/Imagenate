@@ -1,0 +1,14 @@
+<div class="row user-interaction">
+  <%= render partial: 'layouts/likeunlike', locals: {post: post} %>  
+    <div class="col-sm-2">
+        <i class="fa fa-comment-o fa-2x" id= '<%="#{post.id}"%>' onClick= "focusOnCommentField(event)"></i>
+    </div>
+    <div class="col-sm-2">
+      <i class="fa fa-external-link fa-2x"></i>
+    </div>
+    <div class="col-sm-6 like-com comment">
+      <strong><%= post.likes.count %></strong> <%=(post.likes.count) == 1 ? 'Like' : 'Likes'%>
+      <strong><%= post.comments.count%></strong> <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%>
+      <p> <small class="text-muted"><%=post.updated_at%></small> </p> 
+    </div>
+  </div>

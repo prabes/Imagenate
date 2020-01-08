@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ImagesController < ApplicationController
+class ImagesController < ApplicationController #:nodoc:
   def index
     @image = Image.all
   end
