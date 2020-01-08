@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController #:nodoc:
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    if !@profile.save
+    if @profile.save
       flash[:notice] = 'Successfully created!'
     else
       flash[:alert] = 'Something Went Wrong!'

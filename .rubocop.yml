@@ -27,7 +27,6 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Exclude:
-  - 'app/controllers/post_controller.rb'
   
 Style/Documentation:
   Exclude:
