@@ -5,17 +5,12 @@ Style/ClassAndModuleChildren:
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/test_helper.rb'
     - 'bin/*'
-  
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'test/channels/application_cable/connection_test.rb'
-    - 'test/test_helper.rb'
-    - 'bin/*'
     - 'app/controllers/my_devise/registrations_controller.rb'
-  
-Metrics/ClassLength:
+
+Metrics/BlockLength:
   Exclude:
+  - 'config/environments/development.rb'
+  - 'db/schema.rb'
 
 Metrics/LineLength:
   Exclude:
@@ -23,7 +18,11 @@ Metrics/LineLength:
     - 'config/initializers/*'
     - 'bin/*'
     - 'Rakefile'
+    - 'db/schema.rb'
 
+Style/StringLiterals:
+  Exclude: 
+    - 'db/schema.rb'
 
 Metrics/MethodLength:
   Exclude:
@@ -37,18 +36,8 @@ Metrics/AbcSize:
 Lint/Void:
   Exclude:
 
-Metrics/BlockLength:
-  Exclude: 
 Metrics/ClassLength:
   Exclude:
-
-Metrics/LineLength:
-  Exclude:
-    - 'config/environments/*'
-    - 'config/initializers/*'
-    - 'bin/*'
-    - 'Rakefile'
-
 
 Metrics/MethodLength:
   Exclude:
@@ -63,10 +52,6 @@ Metrics/AbcSize:
 Lint/Void:
   Exclude:
   - 'app/controllers/omniauth_callbacks_controller.rb'
-
-Metrics/BlockLength:
-  Exclude: 
-  - 'db/schema.rb'
 
 Style/MixinUsage:
   Exclude:

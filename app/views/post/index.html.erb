@@ -6,7 +6,7 @@
       <div class="col-sm-1">
       </div>
       <div class="col-sm-7">
-        <% @posts.each do |post|%>
+        <%@posts.each do |post|%>
           <%# if current_user.followed?(post.user.id)%>
           <%= render partial: 'layouts/postcard', locals: {post: post}%> 
           <div class="fence"></div>
