@@ -10,7 +10,7 @@
       <%= button_to 'Create Post',new_post_path, method: :get, class: "btn btn-outline-secondary " %>
     </div>
     <div class="col-sm-6">
-      <%= button_to 'Edit Profile',edit_profile_path(current_user), method: :get, class: "btn btn-outline-secondary" %>
+      <%= button_to 'Update Profile',edit_profile_path(current_user), method: :get, class: "btn btn-outline-secondary" %>
     </div>
   </div>
   <%= render partial: 'layouts/suggested'%>
