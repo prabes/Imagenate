@@ -32,3 +32,7 @@
 /issues.md
 
 /.env
+
+#Ignore /wiki It is a git-repo on its own 
+
+/wiki

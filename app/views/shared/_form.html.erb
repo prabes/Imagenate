@@ -1,7 +1,6 @@
 
 <%= form_for @post, url: {action: "create"}  do |f| %>
   <%= render 'shared/errors', object: @post %>
-
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
