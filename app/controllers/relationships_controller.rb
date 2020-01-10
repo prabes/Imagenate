@@ -14,9 +14,9 @@ class RelationshipsController < ApplicationController #:nodoc:
 
   def destroy
     @relationship =
-      Relationship.where(follower_id: params[:user_id],
-                         following_id: current_user.id)
+      Relationship.where(follower_id: current_user.id,
+                         following_id: params[:user_id])
     @relationship&.destroy_all
-    redirect_to root_path
+    render 'requests/cancel'
   end
 end

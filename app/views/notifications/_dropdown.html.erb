@@ -1,0 +1,12 @@
+<li class="nav-item dropdown">
+  <a class="nav-link" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<%= request_path(current_user)%>"><i class="fa fa-heart-o fa-2x"></i></a>
+  <div class="dropdown-menu dropdown-menu-right overflow-auto p-3" aria-labelledby="navbarDropdown">
+    <% if current_user.requesters.empty? %>
+      <h6 class="text-muted">There are no Follow Request for you ! </h6>
+  <% else %>
+    <%current_user.requesters.each do |user|%>  
+      <%= render partial: 'notifications/followrequest', locals: {user: user} %>
+    <%end%>
+  <%end%>
+  </div>
+</li>
