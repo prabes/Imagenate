@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 
   post 'requests', to: 'requests#create'
   post 'request', to: 'requests#destroy'
+
+  get '/search' => 'search#create', :as => 'search_user'
 end
