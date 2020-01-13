@@ -1,8 +1,8 @@
 <div class="card mb-5 border-0 ">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <%if profile.image%>
-        <%= image_tag(profile.image.url(:small), class: 'media-object img-size rounded-circle') %>
+      <%if profile.image.length > 0 %>
+        <%= image_tag(profile.image.last.image.url(:small), class: 'media-object img-size rounded-circle', size: '150x150') %>
       <%end%>
     </div>
     <div class="col-md-8">
