@@ -1,10 +1,12 @@
 <div class="row user-interaction">
   <%= render partial: 'layouts/likeunlike', locals: {post: post} %>  
     <div class="col-sm-2">
-        <i class="fa fa-comment-o fa-2x" id= '<%="#{post.id}"%>' onClick= "focusOnCommentField(event)"></i>
+        <i class="fa fa-comment-o fa-2x btn btn-small" id= '<%="#{post.id}"%>' onClick= "focusOnCommentField(event)"></i>
     </div>
     <div class="col-sm-2">
-      <i class="fa fa-external-link fa-2x"></i>
+      <%= button_to  post_path(post), class: "btn btn-small", method: :get do %> 
+        <i class="fa fa-angle-double-right fa-2x"></i> 
+      <%end%>
     </div>
     <div class="col-sm-6 like-com comment">
       <strong><%= post.likes.count %></strong> <%=(post.likes.count) == 1 ? 'Like' : 'Likes'%>

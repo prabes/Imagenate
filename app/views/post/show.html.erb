@@ -1,53 +1,47 @@
-
-
-<div class="row">
+<div class="row mt-4 bg-light">
   <div class="col-sm-2">
   </div>
-  <div class="col-sm-9">
-    <div class="row">
-      <div class="col-sm-1">
+  <div class=col-sm-8>  
+    <div class="row"> 
+      <div class="col-sm-7"> 
+        <%= render partial: 'layouts/carousel', locals: {post: @post}, class:"card-img-top"%>
       </div>
-      <div class="col-sm-7">
-      </div>
-      <div class="col-sm-3">
+      <div class="col-sm-5">
+        <div class="card  bg-white" style="width: 18rem;">
+         <div class="card-body">
+            <h5 class="card-title"><%=@post.title%></h5>
+            <p class="card-text"><%=@post.description%></p>
+          </div>
+          <div class="card-body row">
+            <div class="col-sm-6">
+              <strong><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></strong>
+            </div>
+            <div class="col-sm-6">
+              <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+              <% if pre_like %>
+                <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: 'btn btn-outline-danger' %>
+              <% else %>
+                <%= button_to 'Like', post_likes_path(@post), method: :post, class: 'btn btn-outline-success' %>
+              <% end %>
+            </div>
+          </div>
+          <div class="list-group list-group-flush">
+            <div class="reply">
+              <%= form_with(model: [@post, @post.comments.build] ,placeholder: "Add Comments...", local: true) do |form| %>
+                <%= form.text_field :body, class: 'comment-box m-1' %>
+                <%= form.submit "Comment", class: 'btn btn-outline-secondary'%>
+              <% end %>
+            </div>
+            <div class="list-group-item">
+              <% post_comments = @post.comments.find_all { |comment| comment.id != nil} %>
+              <%= render partial: 'comments/comments', collection: post_comments %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-1">
+  <div class="col-sm-2">
   </div>
 </div>
 
-
-
-<div class="showpage">
-  <div class="photo">
-    <% @post.images.each do |img|%>
-    <div class="img">  
-      <%= image_tag(img.image.url(:thumb), class: 'media-object img-size')%>
-    </div>
-    <%end%>
-  </div>
-
-  <div class="description">
-    <div class="col-md-4">
-      <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-      <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-      <% if pre_like %>
-        <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
-      <% else %>
-        <%= button_to 'Like', post_likes_path(@post), method: :post %>
-      <% end %>
-
-      <div class="reply">
-        <%= form_with(model: [@post, @post.comments.build] ,placeholder: "Add Comments...", local: true) do |form| %>
-          <%= form.text_field :body %><br>
-          <%= form.submit %><br>
-        <% end %>
-      </div>
-      
-      <% post_comments = @post.comments.find_all { |comment| comment.id != nil} %>
-      <%= render partial: 'comments/comments', collection: post_comments %>
-    </div>
-  </div>
-</div>  
