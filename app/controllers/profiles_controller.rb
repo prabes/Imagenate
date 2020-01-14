@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController #:nodoc:
   before_action :authenticate_user!
   before_action :set_profile, only: %i[edit update destroy]
   before_action :profile_params, only: %i[create update]
-  before_action :image_params, only: :update
+  before_action :image_params, only: %i[create update]
 
   def new
     @profile = Profile.new
@@ -13,7 +13,8 @@ class ProfilesController < ApplicationController #:nodoc:
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    if @profile.save
+    if @profile.save &&
+       @profile.image.build(image_params).save
       flash[:notice] = 'Successfully created!'
     else
       flash[:alert] = 'Something Went Wrong!'

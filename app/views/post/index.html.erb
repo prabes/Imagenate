@@ -1,21 +1,33 @@
-<div class="row bg-light pt-4">
-  <div class="col-sm-2">  
-  </div>
-  <div class="col-sm-9">
-    <div class="row">
-      <div class="col-sm-1">
-      </div>
-      <div class="col-sm-7">
-        <%@posts.each do |post|%>
-          <%= render partial: 'layouts/postcard', locals: {post: post}%> 
-          <div class="fence"></div>
-        <%end%>   
-      </div>
-      <div class="col-sm-3">
-        <%= render partial: 'layouts/usersection', locals: {post: @posts, users: @users} %>
+<%if !current_user.profile.nil? %>
+  <div class="row pt-4">
+    <div class="col-sm-2">  
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-7">
+          <%@posts.each do |post|%>
+            <%= render partial: 'layouts/postcard', locals: {post: post}%> 
+            <div class="fence"></div>
+          <%end%>   
+        </div>
+        <div class="col-sm-3">
+          <%= render partial: 'layouts/usersection', locals: {post: @posts, users: @users} %>
+        </div>
       </div>
     </div>
+    <div class="col-sm-1">
+    </div>
   </div>
-  <div class="col-sm-1">
+<%else%>
+   <div class="row pt-4">
+    <div class="col-sm-2">  
+    </div>
+    <div class="col-sm-9">
+        <strong> We didn't find your Profile. You need to <%= link_to ' Create One ', new_profile_path(current_user)%> to continue.</strong>
+    </div>
+    <div class="col-sm-1">
+    </div>
   </div>
-</div>
+<%end%>

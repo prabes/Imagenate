@@ -1,4 +1,4 @@
-<div class="row mt-4 bg-light">
+<div class="row mt-4">
   <div class="col-sm-2">
   </div>
   <div class=col-sm-8>  
@@ -17,12 +17,18 @@
               <strong><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></strong>
             </div>
             <div class="col-sm-6">
-              <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-              <% if pre_like %>
-                <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, class: 'btn btn-outline-danger' %>
-              <% else %>
-                <%= button_to 'Like', post_likes_path(@post), method: :post, class: 'btn btn-outline-success' %>
-              <% end %>
+              <div id="likeunlike">
+                <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+                <% if pre_like %> 
+                  <%= button_to  post_like_path(@post, pre_like), class: "btn btn-small", method: :delete, remote: true do %> 
+                    <i class="fa fa-heart fa-2x unlike"> </i> 
+                  <%end%>
+                <%else %> 
+                  <%= button_to post_likes_path(@post), method: :post, class: "btn btn-small", remote: true do %>
+                    <i class="fa fa-heart-o fa-2x"> </i>
+                  <%end%>
+                <%end%>
+              </div>    
             </div>
           </div>
           <div class="list-group list-group-flush">
