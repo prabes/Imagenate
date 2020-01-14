@@ -1,7 +1,7 @@
 <div class="row">
   <% profile.user.posts.each do |post|%>
-    <%if profile.image%>
+    <%if post.images%>
       <%=image_tag(post.images.first.image.url(:small), class: 'media-object img-size m-2')%>
     <%end%>
   <% end %>
-  </div>
+</div>

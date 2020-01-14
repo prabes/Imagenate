@@ -6,7 +6,7 @@
 				<%end%>
 		</div>
 		<div class="col-sm-10 font-weight-bold pt-3">
-		  <span> <%=link_to post.user&.profile&.username, profile_path(current_user), class: 'text-dark'%> </span>
+			<span> <%=link_to post.user&.profile&.username, profile_path(post.user), class: 'text-dark'%> </span>
 		</div>
 	</div>
 <%end%>

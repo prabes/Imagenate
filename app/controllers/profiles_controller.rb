@@ -2,7 +2,7 @@
 
 class ProfilesController < ApplicationController #:nodoc:
   before_action :authenticate_user!
-  before_action :set_profile, only: %i[edit show update destroy]
+  before_action :set_profile, only: %i[edit update destroy]
   before_action :profile_params, only: %i[create update]
   before_action :image_params, only: :update
 
@@ -21,7 +21,9 @@ class ProfilesController < ApplicationController #:nodoc:
     redirect_to profile_path(@profile)
   end
 
-  def show; end
+  def show
+    @profile = User.find(params[:id]).profile
+  end
 
   def edit
     if @profile.id == current_user.profile.id
