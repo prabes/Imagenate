@@ -1,19 +1,25 @@
-<h1>Profile#new</h1>
-<p>Find me in app/views/profile/new.html.erb</p>
-
-
-<%= form_for @profile, html: { multipart: true } do |f| %>
-   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :Username %>
-    <%= f.text_field :username, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar, class: 'form-control' %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<%= form_with model: @profile, url: profiles_path do |p|%>
+    <div class="form-group">
+      <%= p.label :name, class:'text-secondary'  %><br/>
+      <%= p.text_field :name, placeholder: "Name", class:'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= p.label :username, class:'text-secondary'  %><br/>
+      <%= p.text_field :username, placeholder: "Username", class:'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= p.label :website, class:'text-secondary'  %> <br/>
+      <%= p.text_field :website, placeholder: "Website", class:'form-control' %>
+    </div>
+    <div class="form-group">  
+      <%= p.label :phone_no, class:'text-secondary'  %> <br/>
+      <%= p.text_field :phone_number, placeholder: "Phone Number", class:'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= p.label :image %>
+      <%= p.file_field :image, class: 'form-control'%>
+    </div>
+    <div class="actions signin-button">
+      <%= p.submit "Submit", class: 'btn btn-outline-secondary' %>
+    </div>
+<%end%>

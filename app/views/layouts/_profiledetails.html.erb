@@ -1,9 +1,9 @@
 <div class="card mb-5 border-0 ">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <%if profile.image%>
-        <%= image_tag(profile.image.url(:small), class: 'media-object img-size rounded-circle') %>
-      <%end%>
+        <%if profile.image.length > 0 %>
+          <%= image_tag(profile.image.last.image.url(:small), class: 'media-object img-size rounded-circle', size: '150x150') %>
+        <%end%>
     </div>
     <div class="col-md-8">
       <div class="card-body row m-0 p-0">
@@ -18,7 +18,14 @@
       <p class="card-text font-weight-lighter"><%=profile.bio%></p>
     </div>
   </div>
-</div>    
-<div class="row">
-  <%= render partial:'layouts/photos', locals: {profile: profile } %>
 </div>
+  <%if !profile.user.posts.empty? %> 
+    <div class="row">
+      <p class="font-weight-bold mx-auto"> <i class="fa fa-th"></i> POSTS</p>
+    </div>    
+    <div class="row">
+      <%= render partial:'layouts/photos', locals: {profile: profile } %>
+    </div>
+  <%else%>
+      <strong>You don't have any post! </strong><%= link_to 'Click to Create',new_post_path, method: :get, class: "font-weight-bold btn btn-outline-secondary" %>
+  <%end%>

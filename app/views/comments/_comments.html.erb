@@ -2,11 +2,10 @@
 <li>
   <%= comments.body %>
   <%= form_for [comments, Comment.new] do |f| %>
-    <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
-    <%= f.submit "Reply"  %>
+    <%= f.text_area :body, placeholder: "Add a Reply", class:"comment-box" %><br/>
+    <%= f.submit "Reply", class: "btn btn-outline-secondary"  %>
   <% end %>
-
-      <ul>
-        <%= render partial: 'comments/comments', collection: comments.comments %>
-      </ul>
-    </li>
+    <ul>
+      <%= render partial: 'comments/comments', collection: comments.comments %>
+    </ul>
+</li>
