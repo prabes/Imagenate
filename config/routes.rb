@@ -2,9 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers:
-         { omniauth_callbacks: 'omniauth_callbacks', registrations: 'my_devise/registrations' }
+         { omniauth_callbacks: 'omniauth_callbacks',
+           registrations: 'my_devise/registrations',
+           confirmations: 'confirmations' }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For details on the DSL available within this file,
+  # see http://guides.rubyonrails.org/routing.html
   root to: 'post#index'
 
   resources :profiles, except: [:index]
@@ -19,4 +22,9 @@ Rails.application.routes.draw do
 
   post 'relationships', to: 'relationships#create'
   post 'relationship',  to: 'relationships#destroy'
+
+  post 'requests', to: 'requests#create'
+  post 'request', to: 'requests#destroy'
+
+  get '/search' => 'search#create', :as => 'search_user'
 end

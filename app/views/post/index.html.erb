@@ -1,53 +1,33 @@
-<div class="container-1">
-  
-  <div class="left-box">
-  </div>
-  
-  <div class="feed">
-    <div class="allpost">
-       <% @posts.each do |post|%>
-          <% if current_user.followed?(post.user.id)%>
-            <%= render partial: 'layouts/postcard', locals: {post: post}%>   
+<%if !current_user.profile.nil? %>
+  <div class="row pt-4">
+    <div class="col-sm-2">  
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-7">
+          <%@posts.each do |post|%>
+            <%= render partial: 'layouts/postcard', locals: {post: post}%> 
+            <div class="fence"></div>
           <%end%>   
-        <%end%>
-    </div>
-  </div>
-  
-  <div class="interaction">
-    <div class="user-profile">
-      <div class="dpimage">
-        Image
-      </div>
-      <div class="uname">
-        <strong> Username</strong>
+        </div>
+        <div class="col-sm-3">
+          <%= render partial: 'layouts/usersection', locals: {post: @posts, users: @users} %>
+        </div>
       </div>
     </div>
-    <div class="quick"> <strong><p> Quick Access </p> </strong> </div>
-    <div class="quick-access">
-      <%= link_to 'Create Post', new_post_path, class: "btn btn-primary" %>
-      <%= link_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-primary"  %>
-    </div>
-    <div class="suggested">
-      <strong> Suggested Peoples </strong>
-        <%@users.each do |user|%>  
-        <% if user.id != current_user.id %> 
-          <strong>  <%= link_to "#{user.profile.username}", profile_path(user) %> </strong>
-          <% if current_user.followed?(user.id) %>
-            <%= button_to "Unfollow", relationship_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%else%>
-            <%= button_to "Follow", relationships_path(user_id: user.id), class: "btn btn-primary", :method => :post%>
-          <%end%>
-        <%end%> 
-          <br>  
-      <%end %>
+    <div class="col-sm-1">
     </div>
   </div>
-  
-  <div class="right-box">
+<%else%>
+   <div class="row pt-4">
+    <div class="col-sm-2">  
+    </div>
+    <div class="col-sm-9">
+        <strong> We didn't find your Profile. You need to <%= link_to ' Create One ', new_profile_path(current_user)%> to continue.</strong>
+    </div>
+    <div class="col-sm-1">
+    </div>
   </div>
-
-</div>
-
-
-
- 
+<%end%>

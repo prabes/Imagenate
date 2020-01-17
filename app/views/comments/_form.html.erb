@@ -1,14 +1,22 @@
-<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-  <p>
-  <h1>Test </h1>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<div class="row pt-4">
+  <div class="col-sm-4">
+  </div>
+<div class="col-sm-4">
+  <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+    <p>
+    <h1>Test </h1>
+      <%= form.label :commenter %><br>
+      <%= form.text_field :commenter %>
+    </p>
+    <p>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+  </div>
+  <div class="col-sm-4">
+  </div>
+</div>

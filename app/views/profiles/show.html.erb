@@ -1,28 +1,12 @@
-<div class="row">
+<div class="row pt-4">
   <div class="col-md-3">
   </div>
   <div class="col-md-6">
-    <div class="row">
-        Profile Page: <%= @profile.name %>
-        <%= link_to 'Edit Profile', edit_profile_path(current_user), class: "btn btn-primary"  %>
-        <%= link_to 'Create Post', new_post_path, class: "btn btn-primary" %>
-        <% @profile.images.each do |img| %>
-          <%= image_tag(img.image.url(:small), class: 'media-object img-size') %>
-        <% end %>
-      </div>
-      <div class="row">
-        <% @profile.user.posts.each do |post|%>
-        <% post.images.each do |img|%>
-          <%=image_tag(img.image.url(:medium), class: 'media-object img-size')%>
-        <% end %>
-        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p> 
-      <% end %>
-      </div>
-    </div>
+    <%= render partial: 'layouts/profiledetails', locals: {profile: @profile}%>
+  </div>
   </div>
   <div class="col-md-3">
   </div>
 </div>
-
 
 

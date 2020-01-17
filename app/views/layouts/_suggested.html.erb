@@ -1,0 +1,17 @@
+  <h6 class="font-weight-bold m-2 ">Suggested Peoples</h6> 
+  <div class="suggested overflow-auto m-0 p-0 ">
+    <%@users.each do |user|%>  
+      <% if user.id != current_user.id %>
+        <div class="row m-0 p-0">
+          <div class="col-md-6 p-0 m-0">
+            <strong>  <%= link_to user.profile.username, profile_path(user), class:'text-secondary m-0 p-0' %> </strong>
+          </div>  
+          <div class="col-md-6 p-0 m-0">
+            <%= render partial: 'layouts/followbutton', locals: {user: user} %>
+          </div>
+        </div>
+      <% end %> 
+      <br>  
+    <% end %>
+  </div>
+  </div>

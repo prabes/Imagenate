@@ -1,0 +1,12 @@
+<div class="col-sm-2" id="likeunlike">
+  <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %> 
+  <% if pre_like %> 
+    <%= button_to  post_like_path(post, pre_like), class: "btn btn-small", method: :delete, remote: true do %> 
+      <i class="fa fa-heart fa-2x unlike"> </i> 
+    <%end%>
+  <%else %> 
+    <%= button_to post_likes_path(post), method: :post, class: "btn btn-small", remote: true do %>
+      <i class="fa fa-heart-o fa-2x"> </i>
+    <%end%>
+  <%end%>
+</div>  

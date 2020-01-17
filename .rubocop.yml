@@ -5,44 +5,54 @@ Style/ClassAndModuleChildren:
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/test_helper.rb'
     - 'bin/*'
-  
-Metrics/ClassLength:
+    - 'app/controllers/my_devise/registrations_controller.rb'
+
+Metrics/BlockLength:
   Exclude:
-    - 'config/**/*'
+  - 'config/environments/development.rb'
+  - 'db/schema.rb'
 
 Metrics/LineLength:
   Exclude:
-    - 'db/schema.rb'
-    - 'config/**/*'
-    - 'app/**/*'
+    - 'config/environments/*'
+    - 'config/initializers/*'
     - 'bin/*'
     - 'Rakefile'
+    - 'db/schema.rb'
 
-Metrics/MethodLength:
-  Exclude:
-    - 'db/migrate/*'
-    - 'app/**/*'
-  
-Style/Documentation:
-  Exclude:
-    - 'app/**/*'
-    - 'app/controllers/**/*'
-    - 'db/migrate/*'
-    - 'app/serializers/*'
-    - 'app/models/*'
-    - 'config/*'
-    - 'app/mailers/*'
-  
-Metrics/AbcSize:
-  Exclude:
-    - 'app/controllers/*'
-    - 'db/migrate/*'
-
-Lint/Void:
-  Exclude:
-  - 'app/**/*'
-
-Metrics/BlockLength:
+Style/StringLiterals:
   Exclude: 
     - 'db/schema.rb'
 
+Metrics/MethodLength:
+  Exclude:
+  
+Style/Documentation:
+  Exclude:
+  
+Metrics/AbcSize:
+  Exclude:
+
+Lint/Void:
+  Exclude:
+
+Metrics/ClassLength:
+  Exclude:
+
+Metrics/MethodLength:
+  Exclude:
+  - 'db/migrate/20191104075954_devise_create_users.rb'
+  
+Style/Documentation:
+  Exclude:
+  
+Metrics/AbcSize:
+  Exclude:
+
+Lint/Void:
+  Exclude:
+  - 'app/controllers/omniauth_callbacks_controller.rb'
+
+Style/MixinUsage:
+  Exclude:
+  - 'bin/*'

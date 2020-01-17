@@ -1,22 +1,49 @@
-<div class="navbar navbar-light bg-light d-flex"> 
-  <div class="left">
+<nav class="row navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+  <div class="col-sm-2">
   </div>
-  <div class="main-nav">
-    <div class="logo">
-      <%= render 'shared/logo' %>
-    </div>
-    <div class="search-bar">
-        <form class="search-box navbar-brand form-inline search navbar-expand-sm bg-light justify-content-center search-field">
-          <input class="form-control search-bar" type="search" placeholder="@search" aria-label="Search">
-        </form>
-    </div>
-    <div class="user-section">
-        <a><i class="fa fa-compass"></i></a>
-        <a><i class="fa fa-heart"></i></a>
-        <a href="<%= profile_path(current_user)%>"><i class="fa fa-user"></i> </a>
-         <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+    
+  <div class="col-sm-9">
+    <div class="row">  
+      
+      <div class="col-sm-4">
+        <a class="navbar-brand" id="logo" href="<%= root_path %>"> 
+          <i class="fa fa-instagram font" aria-hidden="true">
+            Imagenate
+          </i>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="col-sm-3">
+        <%= form_with(url: search_user_path, :method => 'get', class: "form-inline my2 my-lg-0 ", local: true ) do %>
+          <%= search_field_tag :search, params[:search], placeholder: "@search", class: "form-control bg-light", remote: false %>  
+        <%end%>
+      </div> 
+      <div class="col-sm-5">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="row navbar-nav ml-auto mr-auto">
+            <div class="col-sm-4"> 
+              <li class="nav-item active">
+                <a><i class="fa fa-compass fa-2x nav-link"></i></a>
+              </li> 
+            </div>
+
+            <div class="col-sm-4">
+              <%= render partial: 'notifications/dropdown', locals: {users: @users } %>
+            </div>
+
+            <div class="col-sm-4">
+              <li class="nav-item active">
+                <a href="<%= profile_path(current_user)%>"><i class="fa fa-user-o fa-2x nav-link"></i> </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="right">
+  <div class="col-sm-1">
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
   </div>
-</div>
+</nav>

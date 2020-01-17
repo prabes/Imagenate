@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Profile < ApplicationRecord
+class Profile < ApplicationRecord #:nodoc:
   belongs_to :user
-  has_many :images, as: :imageable
+  has_many :image, as: :imageable
 end

@@ -3,42 +3,16 @@
   <head>
     <title>Imagenate</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <!--NavBar-->
     <%= render 'layouts/navbar' if current_user %> 
     <!--Main content-->
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-    <!--Footer-->
-    <!--<footer class="container footer">
-      <nav class="navbar d-flex">
-        <ul>
-          <li>ABOUT US
-          </li>
-          <li>SUPPORT</li>
-          <li>PRESS</li>
-          <li>API</li>
-          <li>JOBS</li>
-          <li>PRIVACY</li>
-          <li>TERMS</li>
-          <li>DIRECTORY</li>
-          <li>PROFILES</li>
-          <li>HASHTAGS</li>
-          <li>LANGUAGE</li>
-        </ul>
-        <p> © 2018 INSTAGRAM </p>
-      </nav>
-    </footer> -->
+    <%#= render 'search/create'%>
+      <%= yield %>
   </body>
 </html>
 
