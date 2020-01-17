@@ -6,9 +6,9 @@ class SearchController < ApplicationController #:nodoc:
       flash[:alert] = 'No Search Keywords!'
       redirect_to root_path
     else
-      @parameter = '%' + params[:search].downcase + '%'
+      parameter = params[:search].downcase
       @results =
-        Profile.where('lower(username) like :search', search: @parameter)
+        Profile.where('username like ?', "%#{parameter}%")
       render :create
     end
   end
