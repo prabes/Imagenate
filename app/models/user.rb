@@ -49,6 +49,7 @@ class User < ApplicationRecord #:nodoc:
   end
 
   def request_received
+    binding.pry
     Request.where(requested_id: id)
   end
 
