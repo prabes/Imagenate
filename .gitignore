@@ -36,3 +36,8 @@
 #Ignore /wiki It is a git-repo on its own 
 
 /wiki
+
+#Ignore conf files
+
+/config/database.yml
+/config/secrets.yml
